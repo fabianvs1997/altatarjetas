@@ -1,0 +1,29 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '2.7.10'
+	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+}
+
+group = 'com.bankiko.atm'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'// Dependencia para el acceso a datos con Spring Data JPA
+	implementation 'org.springframework.boot:spring-boot-starter-web'// Dependencia para la creación de aplicaciones web con Spring Boot
+	compileOnly 'org.projectlombok:lombok'// Dependencia para el uso de anotaciones de Lombok sólo en tiempo de compilación
+
+	// https://mvnrepository.com/artifact/com.oracle.ojdbc/ojdbc8
+	implementation 'com.oracle.ojdbc:ojdbc8:19.3.0.0' // Dependencia para el controlador JDBC de Oracle, versión 8
+
+	annotationProcessor 'org.projectlombok:lombok'// Dependencia para el uso de anotaciones de Lombok en tiempo de compilación
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'// Dependencia para las pruebas unitarias con Spring Boot
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
